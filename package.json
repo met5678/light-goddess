@@ -1,0 +1,29 @@
+{
+  "name": "light-goddess",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/met5678/light-goddess.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/met5678/light-goddess/issues"
+  },
+  "homepage": "https://github.com/met5678/light-goddess#readme",
+  "dependencies": {
+    "canvas": "^1.2.7",
+    "color": "^0.10.1",
+    "easiness": "^1.0.0",
+    "lodash": "^3.10.1",
+    "midi": "^0.9.3",
+    "node-traktor-f1": "0.0.1",
+    "serialport": "^1.7.4",
+    "signal-exit": "^2.1.2"
+  }
+}
