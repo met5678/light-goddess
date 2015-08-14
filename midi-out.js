@@ -11,8 +11,8 @@ function cleanup() {
 	output.closePort();
 }
 
-function sendMessage() {
-	output.sendMessage([176,22,1]);
+function sendMessage(status,db1,db2) {
+	output.sendMessage([status,db1,db2]);
 }
 
 function noteOn(channel,note,velocity) {
@@ -28,7 +28,7 @@ function polyTouch(channel,note,velocity) {
 }
 
 function ctrlChange(channel,param,value) {
-	sendMessage(192+channel,param,value);
+	sendMessage(176+channel,param,value);
 }
 
 onExit(cleanup);
