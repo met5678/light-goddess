@@ -10,7 +10,7 @@ const width = nconf.get('width');
 const height = nconf.get('height');
 
 const canvas = new Canvas(width, height);
-console.log(width, height);
+
 const ctx = canvas.getContext('2d');
 state.ctx = ctx;
 

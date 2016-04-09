@@ -3,6 +3,8 @@ const ipc   = require('ipc-goddess');
 const nconf = require('nconf');
 nconf.argv().env().file({file: './config/config.json'});
 
+console.log(nconf.get('width'));
+
 const canvas  = require('./canvas');
 const driver  = require('./driver');
 const mapping = require('./mapping');
