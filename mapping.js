@@ -13,6 +13,9 @@ for(var a=0; a<highestChannel; a++) {
 }
 
 function getChannels(ctx) {
+  if(!ctx) {
+    return channels;
+  }
   var imageData = ctx.getImageData(0,0,w,h).data;
   for(var row = 0; row<h; row++) {
     for(var col = 0; col<w; col++) {
