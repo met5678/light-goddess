@@ -17,11 +17,10 @@ function initCols() {
 }
 
 function getProgress(curPhase, dropPhase) {
-  var a = Math.abs(dropPhase-curPhase);
-  if(a > 0.5) { 
-    a = 1-a;
+  var a = dropPhase-curPhase;
+  if(a < 0) {
+    a += 1;
   }
-  a = a * 2;
 
   return a;
 }
