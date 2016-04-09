@@ -7,7 +7,7 @@ const width  = nconf.get('width');
 
 var cols = [];
 
-function initCols() {
+function initCols(ctx) {
   for(var col=0; col<width; col++) {
     cols[col] = {
       color: color.getColor(),
@@ -22,21 +22,28 @@ function getProgress(curPhase, dropPhase) {
     a += 1;
   }
 
-  return a;
+  return 1-a;
 }
 
 
 module.exports = function(ctx) {
   if(state.changed) {
-    initCols();
+    initCols(ctx);
   }
 
   var curPhase = (state.frame%state.effectArgs.period)/state.effectArgs.period;
 
   for(var col=0; col<width; col++) {
     var progress = getProgress(curPhase, cols[col].phase);
-    ctx.fillStyle = cols[col].color;
 
-    ctx.fillRect(col,(progress*height)|0,1,1);
+    var grd = ctx.createLinearGradient(0,0,0,height);
+    grd.addColorStop(progress-state.effectArgs.dropLength,'black');
+    grd.addColorStop(progress,cols[col].color);
+    grd.addColorStop(progress+0.05,'black');
+    //grd.addColorStop(1,'black');
+
+    ctx.fillStyle = grd;
+
+    ctx.fillRect(col,0,1,height);
   }
 }

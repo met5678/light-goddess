@@ -1,7 +1,8 @@
 {
   "effect": "rain",
   "effectArgs": {
-    "period": 40
+    "period": 40,
+    "dropLength": 0.5
   },
   "color": {
     "h": 240,
