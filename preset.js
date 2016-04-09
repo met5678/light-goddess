@@ -11,7 +11,7 @@ function switchTo(preset) {
   }
 }
 
-switchTo('cloudy');
+switchTo('drizzle');
 
 module.exports = {
   switchTo: switchTo

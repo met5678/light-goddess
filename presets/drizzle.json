@@ -1,13 +1,12 @@
 {
   "effect": "rain",
-  "args": {
-    "density": 50,
-    "speed": 50
+  "effectArgs": {
+    "period": 40
   },
   "color": {
-    "hue": 240,
-    "sat": 100,
-    "value": 50,
+    "h": 240,
+    "s": 100,
+    "v": 50,
     "spread": 0
   }
 }
