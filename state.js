@@ -3,8 +3,6 @@ var state = {
   preset: 'cloudy',
   effect: 'pulsate',
   effectArgs: {
-    speed: 50,
-    density: 50
   },
   color: {
     h: 240,
