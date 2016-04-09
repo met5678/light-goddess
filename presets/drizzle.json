@@ -1,0 +1,13 @@
+{
+  "effect": "rain",
+  "args": {
+    "density": 50,
+    "speed": 50
+  },
+  "color": {
+    "hue": 240,
+    "sat": 100,
+    "value": 50,
+    "spread": 0
+  }
+}
