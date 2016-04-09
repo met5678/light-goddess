@@ -1,7 +1,7 @@
 const _     = require('lodash');
 const ipc   = require('ipc-goddess');
 const nconf = require('nconf');
-nconf.argv().file('config/config.json');
+nconf.argv().env().defaults(require('config/config.json'));
 
 console.log(nconf.get('width'));
 
