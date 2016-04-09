@@ -1,7 +1,7 @@
 const _     = require('lodash');
 const ipc   = require('ipc-goddess');
 const nconf = require('nconf');
-nconf.argv().env().file({file: 'config/config.json'});
+nconf.argv().env().file({file: './config/config.json'});
 
 const canvas  = require('./canvas');
 const driver  = require('./driver');
