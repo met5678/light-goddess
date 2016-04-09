@@ -11,7 +11,7 @@ function switchTo(preset) {
   }
 }
 
-switchTo('drizzle');
+switchTo('rain');
 
 module.exports = {
   switchTo: switchTo
