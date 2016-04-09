@@ -2,8 +2,8 @@
   "effect": "sweep",
   "effectArgs": {
     "numLines": 2,
-    "lineWidth": 0.12,
-    "period": 50
+    "lineWidth": 0.09,
+    "period": 20
   },
   "color": {
     "h": 240,
