@@ -2,13 +2,13 @@
   "effect": "lightning",
   "effectArgs": {
     "period": 100,
-    "darkVal": -1,
+    "darkVal": 0.2,
     "lightningFreq": 0.05
   },
   "color": {
     "h": 250,
     "s": 80,
-    "v": 30,
+    "v": 15,
     "spread": 10
   }
 }

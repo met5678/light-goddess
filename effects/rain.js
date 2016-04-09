@@ -40,7 +40,6 @@ module.exports = function(ctx) {
     grd.addColorStop(progress-state.effectArgs.dropLength,'black');
     grd.addColorStop(progress,cols[col].color);
     grd.addColorStop(progress+0.05,'black');
-    //grd.addColorStop(1,'black');
 
     ctx.fillStyle = grd;
 
