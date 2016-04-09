@@ -18,6 +18,25 @@ function initPixels() {
   }
 }
 
+function getAlpha(curPhase, pixelPhase) {
+  var a = Math.abs(pixelPhase-curPhase);
+  if(a > 0.5) { 
+    a = 1-a;
+  }
+  a = a * 2;
+
+  var range = 1-state.effectArgs.darkVal;
+  a *= range;
+
+  a = 1-a;
+  if(a < 0) {
+    return 0;
+  }
+  else {
+    return a;
+  }
+}
+
 module.exports = function(ctx) {
   if(state.changed) {
     initPixels();
@@ -27,14 +46,7 @@ module.exports = function(ctx) {
 
   for(var row=0; row<height; row++) {
     for(var col=0; col<width; col++) {
-
-      var a = Math.abs(pixels[row][col].phase-curPhase);
-      if(a > 0.5) { 
-        a = 1-a;
-      }
-      a = a * 2;
-
-      ctx.globalAlpha = a;
+      ctx.globalAlpha = getAlpha(curPhase, pixels[row][col].phase);
 
       ctx.fillStyle = pixels[row][col].color;
       ctx.fillRect(col,row,1,1);
