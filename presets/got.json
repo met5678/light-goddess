@@ -1,20 +1,20 @@
 {
   "effect": "pulsate",
   "effectArgs": {
-    "period": 100,
-    "darkVal": -1
+    "period": 40,
+    "darkVal": 0
   },
   "color": [
     {
       "h": 0,
       "s": 100,
-      "v": 80,
+      "v": 70,
       "spread": 0
     },
     {
       "h": 240,
       "s": 100,
-      "v": 80,
+      "v": 70,
       "spread": 0
     }
   ]
