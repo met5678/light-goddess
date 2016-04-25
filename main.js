@@ -31,7 +31,7 @@ driver.on('frame', doFrame);
 
 function doFrame() {
 	if(state.changed) {
-		color.setBaseColor();
+		//color.setBaseColor();
 	}
 	canvas.renderFrame();
 	ipc.emit('channels', mapping.getChannels(state.ctx));

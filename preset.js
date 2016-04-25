@@ -11,7 +11,7 @@ function switchTo(preset) {
   }
 }
 
-switchTo('wind');
+switchTo('got');
 
 module.exports = {
   switchTo: switchTo
