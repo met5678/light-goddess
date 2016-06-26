@@ -1,10 +1,7 @@
-var easiness = require('easiness');
-var _ = require('lodash');
+'use strict';
 
-var beatProgress = 0;
-var phraseProgress = 0;
-var bpm = 128;
-var lastBeat = process.hrtime();
+const easiness = require('easiness');
+const _        = require('lodash');
 
 var defaults = {
 	easing: 'linear',
@@ -12,22 +9,45 @@ var defaults = {
 	quant: 4
 }
 
-function getAdjustedBeat(position, quant) {
-	var newPosition = _.clone(position);
+var lastFrameProgress = 1;
+
+function getAdjustedBeat(curBeat, params) {
+	let quant    = params.quant;
+	let ease     = params.ease;
+	let pingpong = params.pingpong;
+
+	let progress = curBeat.progress;
+	let num      = curBeat.num;
+
+	let newBeat = {
+		progress: progress,
+		num: num
+	};
 
 	// First, quantization
 	if(quant > 4) {
-		newPosition.progress %= (4 / quant);
-		newPosition.beat = ((quant/4) * position.beat + Math.floor(quant/4 * position.progress))%16;
+		newBeat.progress %= (4 / quant);
+		newBeat.progress *= quant / 4;
+		newBeat.num = ((quant/4) * num + Math.floor(quant/4 * progress))%16;
 	}
 	else if(quant < 4) {
-		newPosition.progress = (position.beat % (4/quant) + position.progress) * quant / 4;
-		newPosition.beat = position.beat >> (quant == 2 ? 1 : 2);
+		newBeat.progress = (num % (4/quant) + progress) * quant / 4;
+		newBeat.num = num >> (quant == 2 ? 1 : 2);
 	}
 
-	return newPosition;
-	
+	newBeat.isBeat = newBeat.progress < lastFrameProgress;
+	lastFrameProgress = newBeat.progress;
 
+	if(ease) {
+		newBeat.progress = easiness.easeOutSine(newBeat.progress);
+	}
+
+	if(pingpong && (newBeat.num % 2)) {
+		newBeat.progress = 1 - newBeat.progress;
+	}
+
+
+	return newBeat;
 }
 
 var BeatManager = function() {

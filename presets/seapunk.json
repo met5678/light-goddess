@@ -1,0 +1,15 @@
+{
+  "effect": "sweep",
+  "effectArgs": {
+    "numLines": 1,
+    "lineWidth": 0.3,
+    "period": 64,
+    "direction": 0
+  },
+  "color": {
+    "h": 0,
+    "s": 100,
+    "v": 100,
+    "spread": 0
+  }
+}

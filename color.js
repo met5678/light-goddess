@@ -1,9 +1,11 @@
+'use strict';
+
 const _     = require('lodash');
 const Color = require('color');
 const state = require('./state');
 
 function getSingleColor(color) {
-  var baseColor = Color().hsv(color.h, color.s, color.v);
+  var baseColor = Color().hsv(color.h, color.s, Math.round(color.v * state.control.dim));
 
   if(color.spread) {
     var dir = Math.random() < 0.5;
@@ -18,15 +20,25 @@ function getSingleColor(color) {
   }
 }
 
-function getColor() {
-  if(_.isArray(state.color)) {
-    return getSingleColor(_.sample(state.color));
-  }
-  else {
-    return getSingleColor(state.color);
+function doColors(override) {
+  if(override || state.frame.beat.isBeat) {
+    let curColor = state.control.color;
+    if(!_.isArray(curColor)) {
+      curColor = [ curColor ];
+    }
+    state.frame.colors = [
+      getSingleColor(curColor[0]),
+      getSingleColor(curColor[1 % curColor.length]),
+      getSingleColor(curColor[2 % curColor.length]),
+      getSingleColor(curColor[3 % curColor.length])
+    ];
   }
 }
 
+doColors(true);
+
 module.exports = {
-  getColor: getColor
+  doColors: doColors,
+  DARK: 'rgba(0,0,0,0)',
+  WHITE: '#FFFFFF'
 };

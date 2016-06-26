@@ -6,12 +6,12 @@ const presets = requireDir('./presets');
 
 function switchTo(preset) {
   if(presets[preset]) {
-    _.assign(state,presets[preset]);
+    _.assign(state.control, presets[preset]);
     state.changed = true;
   }
 }
 
-switchTo('got');
+switchTo('seapunk');
 
 module.exports = {
   switchTo: switchTo
