@@ -8,6 +8,7 @@ var state = {
     },
     effect: 'pulsate',
     effectArgs: {
+      seed: 500,
       gradWidth: .2,
       reverse: true,
       numLines: 3,

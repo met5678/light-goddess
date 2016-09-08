@@ -37,7 +37,8 @@ function randomizeColors() {
 }
 
 function randomizeAll() {
-
+  state.control.beat.pingpong = Math.random() < 0.5;
+  state.control.beat
 }
 
 module.exports = {

@@ -1,1 +1,1 @@
-module.exports = require('./config-old4col.json');
+module.exports = require('./config-backyard.json');
